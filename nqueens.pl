@@ -6,8 +6,11 @@
 
 use strict;
 use warnings;
-use Queens;
 use 5.010;
+use Path::Class qw/file/;
+use lib file(__FILE__)->dir->subdir('lib')->absolute->stringify;
+
+use Queens;
 
 my $q = Queens->new($ARGV[0]);
 say $q->solutions_as_string();
