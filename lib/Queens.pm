@@ -32,7 +32,7 @@ sub next_allowed {
 }
 
 sub solutions {
-    return [];
+    return ();
 }
 
 1;
