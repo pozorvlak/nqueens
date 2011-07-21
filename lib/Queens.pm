@@ -32,7 +32,23 @@ sub next_allowed {
 }
 
 sub solutions {
-    return ();
+    # Since we may have at most 1 queen per column, and must fit N queens into
+    # N columns, we must have exactly 1 queen per column.
+    # Hence, we proceed a column at a time, finding allowable positions by
+    # depth-first search.
+    #
+    # We return a list of listrefs; each listref being a list of row-positions.
+    my $self = shift;
+    my @already_seen = @_;
+    my $current_col = scalar(@already_seen);
+    if ($current_col == $self->size) {
+        return ([@already_seen]); # base case
+    }
+    my @solutions = ();
+    for my $possibility ($self->next_allowed(@already_seen)) {
+        push @solutions, $self->solutions(@already_seen, $possibility);
+    }
+    return @solutions;
 }
 
 1;
