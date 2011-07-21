@@ -31,4 +31,8 @@ sub next_allowed {
     return grep { $allowed[$_] == 1 } (0 .. $#allowed);
 }
 
+sub solutions {
+    return [];
+}
+
 1;
