@@ -1,0 +1,5 @@
+At the Glasgow MathsJam on 19/07/2011, we had a discussion of the n-Queens
+problem, and ended up solving it for n < 7 by hand. This is an implementation
+of the not-particularly-smart algorithm we ended up devising.
+
+For more on the problem, see http://en.wikipedia.org/wiki/Eight_queens_puzzle.
