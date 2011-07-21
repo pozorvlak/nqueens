@@ -51,11 +51,20 @@ sub solutions {
     return @solutions;
 }
 
+# Prettyprint a single solution.
+# Takes a listref, returns a string of form "A1 B7..."
 sub solution_as_string {
     my $self = shift;
     my $soln = shift;
     my @positions = map { chr(ord("A")+$_).($soln->[$_]+1) } (0..$#{$soln});
     return join(" ", @positions);
+}
+
+# Return string containing all solutions, separated by newlines.
+sub solutions_as_string {
+    my $self = shift;
+    my @solutions = $self->solutions();
+    return join("\n", map { $self->solution_as_string($_) } @solutions);
 }
 
 1;
