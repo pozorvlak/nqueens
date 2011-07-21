@@ -6,7 +6,8 @@
 
 use strict;
 use warnings;
-use Queens 'queens';
+use Queens;
 use 5.010;
 
-say queens($ARGV[0]);
+my $q = Queens->new($ARGV[0]);
+say $q->solutions_as_string();
