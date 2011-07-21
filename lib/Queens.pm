@@ -51,4 +51,11 @@ sub solutions {
     return @solutions;
 }
 
+sub solution_as_string {
+    my $self = shift;
+    my $soln = shift;
+    my @positions = map { chr(ord("A")+$_).($soln->[$_]+1) } (0..$#{$soln});
+    return join(" ", @positions);
+}
+
 1;
